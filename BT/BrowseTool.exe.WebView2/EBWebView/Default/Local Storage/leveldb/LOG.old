@@ -1,2 +1,5 @@
-2023/09/29-16:20:04.526 6060 Creating DB C:\Users\stupid\Desktop\spotify\BT\BrowseTool.exe.WebView2\EBWebView\Default\Local Storage\leveldb__tmp_for_rebuild since it was missing.
-2023/09/29-16:20:04.600 6060 Reusing MANIFEST C:\Users\stupid\Desktop\spotify\BT\BrowseTool.exe.WebView2\EBWebView\Default\Local Storage\leveldb__tmp_for_rebuild/MANIFEST-000001
+2023/09/29-21:21:31.591 4ff4 Reusing MANIFEST C:\Users\stupid\source\repos\BrowseTool\BrowseTool\bin\Debug\BrowseTool.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2023/09/29-21:21:31.592 4ff4 Recovering log #3
+2023/09/29-21:21:31.594 4ff4 Reusing old log C:\Users\stupid\source\repos\BrowseTool\BrowseTool\bin\Debug\BrowseTool.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000003.log 
+2023/09/29-21:21:38.001 3690 Level-0 table #5: started
+2023/09/29-21:21:38.027 3690 Level-0 table #5: 77219 bytes OK
