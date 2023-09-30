@@ -3,6 +3,10 @@
 
 A free tool for spotify integration into the VRChat OSC system
 
+## Requirements
+
+.NET 6.0 Runtime
+
 ## About
 The VRChat OSC system allows 3rd party programs to send data to the game.
 
