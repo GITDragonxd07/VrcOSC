@@ -36,6 +36,8 @@ BrowseTool is a special brower made by me to allow for easier spotify authentica
 
 You are not required to use BrowseTool when using VrcOSC
 
+Read more about BrowseTool here 
+    https://github.com/GITDragonxd07/BrowseTool
 ```
 What if I disable BrowseTool?
 
