@@ -32,7 +32,7 @@ To install this program, please follow the steps below
 
 - Run VrcOSCWorking.exe
 
-- Open the settings.json file and paste in your spotify Client ID and Secret you got from your app
+- Open the settings.json file and paste in your spotify Client ID and Secret you got from the settings tab of your app
 
 - Make sure all the settings match up to your spotify application (USEBROWSERTOOL is not part of spotify, read about it below)
 
