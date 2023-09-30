@@ -12,7 +12,15 @@ This program uses OSC along with a Spotify Api to send the currently playing son
 To install this program, please follow the steps below
 
 ```
-- Create a spotify application at https://developer.spotify.com/dashboard
+- Login to https://developer.spotify.com/dashboard
+
+- Click on your profile then Dashboard
+
+- Click Create app
+
+- Put in any app name and description
+
+- Fill out redirect URL (The default is http://localhost:5000/callback)
 
 - Download the entire program from github
 
@@ -20,7 +28,7 @@ To install this program, please follow the steps below
 
 - Run VrcOSCWorking.exe
 
-- Open the settings.json file and paste in your spotify Client ID and Secret
+- Open the settings.json file and paste in your spotify Client ID and Secret you got from your app
 
 - Make sure all the settings match up to your spotify application (USEBROWSERTOOL is not part of spotify, read about it below)
 
