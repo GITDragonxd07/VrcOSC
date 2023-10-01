@@ -1,0 +1,42 @@
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\VrcOSCWorking.exe
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\VrcOSCWorking.deps.json
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\VrcOSCWorking.runtimeconfig.json
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\VrcOSCWorking.dll
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\VrcOSCWorking.pdb
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.csproj.AssemblyReference.cache
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.AssemblyInfoInputs.cache
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.AssemblyInfo.cs
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.csproj.CoreCompileInputs.cache
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.dll
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\refint\VrcOSCWorking.dll
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.pdb
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.genruntimeconfig.cache
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\ref\VrcOSCWorking.dll
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\SpotifyAPI.Web.dll
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.csproj.CopyComplete
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\EmbedIO.dll
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\SpotifyAPI.Web.Auth.dll
+C:\Users\stupid\Desktop\YUR.fit-BeatSaber-Mod SOURCE CODE\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\Swan.Lite.dll
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\VrcOSCWorking.exe
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\VrcOSCWorking.deps.json
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\VrcOSCWorking.runtimeconfig.json
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\VrcOSCWorking.dll
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\VrcOSCWorking.pdb
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\EmbedIO.dll
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\SpotifyAPI.Web.dll
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\SpotifyAPI.Web.Auth.dll
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\bin\Debug\net6.0\Swan.Lite.dll
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.csproj.AssemblyReference.cache
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.GeneratedMSBuildEditorConfig.editorconfig
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.AssemblyInfoInputs.cache
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.AssemblyInfo.cs
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.csproj.CoreCompileInputs.cache
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.csproj.CopyComplete
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.dll
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\refint\VrcOSCWorking.dll
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.pdb
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\VrcOSCWorking.genruntimeconfig.cache
+E:\!Projects\VrcOSCWorking\VrcOSCWorking\obj\Debug\net6.0\ref\VrcOSCWorking.dll

@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "owRZKnxPBDcIG3qkmkDrD+GB25FYbG6OKoeGXHJTZgKuI6BeAixzXf7UBs0Km0ONvY8pDUhp4p/syp6TrMw4dw==",
+  "success": true,
+  "projectFilePath": "E:\\!Projects\\VrcOSCWorking\\VrcOSCWorking\\VrcOSCWorking.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\stupid\\.nuget\\packages\\embedio\\3.5.2\\embedio.3.5.2.nupkg.sha512",
+    "C:\\Users\\stupid\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\stupid\\.nuget\\packages\\spotifyapi.web\\7.0.0\\spotifyapi.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\stupid\\.nuget\\packages\\spotifyapi.web.auth\\7.0.0\\spotifyapi.web.auth.7.0.0.nupkg.sha512",
+    "C:\\Users\\stupid\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\stupid\\.nuget\\packages\\unosquare.swan.lite\\3.1.0\\unosquare.swan.lite.3.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
