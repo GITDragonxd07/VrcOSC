@@ -1,8 +1,0 @@
-2023/09/29-21:25:24.320 1760 Reusing MANIFEST C:\Users\stupid\source\repos\BrowseTool\BrowseTool\bin\Debug\BrowseTool.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2023/09/29-21:25:24.321 1760 Recovering log #3
-2023/09/29-21:25:24.322 1760 Level-0 table #3: started
-2023/09/29-21:25:24.333 1760 Level-0 table #3: 77219 bytes OK
-2023/09/29-21:25:24.334 1760 Recovering log #4
-2023/09/29-21:25:24.335 1760 Reusing old log C:\Users\stupid\source\repos\BrowseTool\BrowseTool\bin\Debug\BrowseTool.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000004.log 
-2023/09/29-21:25:24.349 1760 Delete type=0 #3
-2023/09/29-21:25:24.349 1760 Delete type=2 #5
