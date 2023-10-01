@@ -15,6 +15,7 @@ using System.Linq.Expressions;
 using System.Net;
 using System.Reflection;
 using System.Runtime;
+using System.Runtime.ExceptionServices;
 using System.Security.Principal;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -69,46 +70,59 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
         private static void ChatMsg(SharpOSC.UDPSender sender, string[] msgs)
         {
             string totalmessage = "";
-            int limit = 22;
-            string newline = " \n ";
-
+            int limit = 32;
+            string newline = " \v ";
             //int limit = new string("this is the max limit of").Length - newline.Length;
-
+            int currmsg = 0;
 
             foreach (var startmsg in msgs)
             {
-
+                currmsg += 1;
                 string msg = startmsg;
 
                 //if (startmsg.Contains("(") || startmsg.Contains(")"))
                 //{
-                //    msg = RemoveBetween(startmsg, "(", ")").Replace("(","").Replace(")",""); // removes features in song titles
+                //    msg = RemoveBetween(startmsg, "(", ")").Replace("(", "").Replace(")", ""); // removes features in song titles
 
                 //}
 
                 if (msg.Length >= limit)
                 {
-                    totalmessage += (LimitLength(msg, limit - 2) + "...").CenterString(limit);
+                    totalmessage += (LimitLength(msg, limit - 3) + "...").CenterString(limit);
 
                 }
                 else
                 {
-                    float charstomake = limit - msg.Length;
-                    for (float i = 0; i <= charstomake; i++)
-                    {
-                        if (i == (int)Math.Floor(charstomake / 2))
-                        {
-                            totalmessage += msg;
-                        }
-                        totalmessage += "\u2060";
-                    }
+                    totalmessage += msg;
 
-                    //totalmessage += msg.CenterString(limit);
+                }
+                //else
+                //{
+                //    float charstomake = limit - msg.Length;
+                //    for (float i = 0; i <= charstomake; i++)
+                //    {
+                //        if (i == (int)Math.Floor(charstomake / 2))
+                //        {
+                //            totalmessage += msg;
+                //        }
+                //        totalmessage += "\u2060";
+                //    }
+
+                //    //totalmessage += msg.CenterString(limit);
+                //}
+
+                if(msgs.Count() > currmsg)
+                {
+                    totalmessage += newline;
+
                 }
 
-                totalmessage += newline;
+
 
             }
+
+            
+
             foreach (var i in totalmessage.Split(newline))
             {
                 Console.WriteLine($"|{i}|   {i.Length}");
@@ -292,22 +306,20 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
             }
         }
 
-
+        private static void RestartApp()
+        {
+            Process.Start("VrcOSCWorking.exe");
+            Environment.Exit(0);
+        }
         public static string gettokenexperation(DateTime endTime)
         {
             if(endTime < DateTime.UtcNow)
             {
-                Process.Start("VrcOSCWorking.exe");
-                Environment.Exit(0);
+                RestartApp();
             }
             return (endTime - DateTime.UtcNow).ToString("mm\\:ss");
         }
 
-        private static void OnTimedEvent(Object source, ElapsedEventArgs e)
-        {
-            Console.WriteLine("The Elapsed event was raised at {0:HH:mm:ss.fff}",
-                              e.SignalTime);
-        }
 
         private static async Task Start()
         {
@@ -335,14 +347,14 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
             {
                 try
                 {
-                    Console.Clear();
-                    Console.WriteLine($"Token refreshes in {gettokenexperation(endTime)}");
 
-                    Console.WriteLine($"Stage {stage}/{stages}");
-                    Console.WriteLine($"-----------------------");
                     if (CurrentSong.IsNull)
                     {
+                        Console.Clear();
+                        Console.WriteLine($"Token refreshes in {gettokenexperation(endTime)}");
 
+                        Console.WriteLine($"Stage {stage}/{stages}");
+                        Console.WriteLine($"-----------------------");
                         switch (stage)
                         {
 
@@ -370,8 +382,10 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
                     {
                         for (int a = 0; a < UPDATES; a++)
                         {
-                            //await Update();
-                            Console.WriteLine("Update " + a);
+                            Console.Clear();
+                            Console.WriteLine($"Token refreshes in {gettokenexperation(endTime)}");
+                            Console.WriteLine($"Stage {stage}/{stages} (Update {a})");
+                            Console.WriteLine($"-----------------------");
 
 
                             switch (stage)
@@ -409,7 +423,7 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
                                     //sender.Send(new SharpOSC.OscMessage("/chatbox/input", "♪"));
                                     break;
                                 //case 3:
-                                //    ChatMsg(sender, new string[] { $"Popularity: {CurrentSong.Data.Popularity}/100",$"{CurrentSong.Data.Restrictions}",$"Experation {gettokenexperation(endTime)}" });
+                                //    ChatMsg(sender, new string[] { $"Popularity: {CurrentSong.Data.Popularity}/100",$"{CurrentSong.Data.Type}",$"Experation {gettokenexperation(endTime)}" });
                                 //    break;
 
                                 default:
@@ -529,10 +543,14 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
 
         static void Main(string[] args)
         {
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 
             Console.Title = "VrcOSC By Dragon";
+
+
 
             if (Setup())
             {
@@ -550,6 +568,20 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
                 }
             }
             Thread.Sleep(10000);
+
+        }
+
+
+
+
+
+
+        static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            ErrorReport(e.ToString());
+            Log("Restarting in 5 seconds due to fatal error...");
+            Thread.Sleep(5000);
+            RestartApp();
 
         }
     }
