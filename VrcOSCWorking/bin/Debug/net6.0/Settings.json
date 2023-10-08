@@ -1,6 +1,6 @@
 {
-  "CLIENTID": "",
-  "CLIENTSECRET": "",
+  "CLIENTID": "81b48ffbeade40faa0a3768893a94c7d",
+  "CLIENTSECRET": "a8c1069f674542cbaab7d2fd4fa26646",
   "REDIRECTURL": "http://localhost:5000/callback",
   "USEBROWSERTOOL": true,
   "REDIRECTPORT": 5000

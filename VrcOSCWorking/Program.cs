@@ -190,7 +190,7 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
             await _server.Stop();
         }
 
-
+        private static string lastplayed = null;
         private static void ErrorReport(string err)
         {
             Log($"Error: {err}");
@@ -240,6 +240,7 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
             public static string Explicit = @"🅴";
             public static string Shaded = @"█";
             public static string UnShaded = @"░";
+            public static string Note = @"🎵";
 
         }
 
@@ -261,6 +262,7 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
                     CurrentSong.Data = item;
                     CurrentSong.Playing = track.IsPlaying;
                     CurrentSong.Object = track;
+                    lastplayed = $"{Chars.Note}{CurrentSong.Data.Name} - {CurrentSong.Data.Artists[0].Name}";
                     Thread.Sleep(1000);
                     CurrentSong.IsNull = false;
 
@@ -362,11 +364,22 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
 
                             case 1:
 
-                                ChatMsg(sender, new string[] { $"Expires in {gettokenexperation(endTime)}", "-VrcOsc-" });
+                                ChatMsg(sender, new string[] { $"Open spotify to start", "-VrcOsc-" });
                                 break;
 
                             case 2:
-                                ChatMsg(sender, new string[] { $"Open spotify to start", "-VrcOsc-" });
+
+                                if (lastplayed == null)
+                                {
+                                    ChatMsg(sender, new string[] { $"VrcOsc", "A free vrchat OSC tool"});
+
+                                }
+                                else
+                                {
+                                    ChatMsg(sender, new string[] { $"Last played", lastplayed });
+
+                                }
+
 
                                 break;
                             default:
@@ -391,7 +404,7 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
                             switch (stage)
                             {
 
-
+                                
 
                                 case 1:
 
@@ -403,7 +416,7 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
 
 
                                     //sender.Send(new SharpOSC.OscMessage("/chatbox/input", $"{utf8Bytes}", true, false ));
-
+     
                                     int bars = 6;
                                     float calculated = MathF.Round(bars * (float)((decimal)CurrentSong.Object.ProgressMs / CurrentSong.Data.DurationMs));
                                     string barstring = "";
@@ -423,7 +436,7 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
                                     //sender.Send(new SharpOSC.OscMessage("/chatbox/input", "♪"));
                                     break;
                                 //case 3:
-                                //    ChatMsg(sender, new string[] { $"Popularity: {CurrentSong.Data.Popularity}/100",$"{CurrentSong.Data.Type}",$"Experation {gettokenexperation(endTime)}" });
+                                //    ChatMsg(sender, new string[] { $"Popularity: {CurrentSong.Data.Popularity}/100", $"{CurrentSong.Data.Type}", $"Experation {gettokenexperation(endTime)}" });
                                 //    break;
 
                                 default:
