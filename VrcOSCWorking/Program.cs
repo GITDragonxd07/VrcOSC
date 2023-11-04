@@ -241,7 +241,7 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
             public static string Shaded = @"█";
             public static string UnShaded = @"░";
             public static string Note = @"🎵";
-
+            public static string Blank = "\u2060";
         }
 
         private static async void Update()
@@ -279,21 +279,22 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
 
         }
 
-        private static void WriteUtf8String(UDPSender sender, string data)
-        {
-            var utf8String = Encoding.Unicode.GetBytes(data);
-            Array.Resize(ref utf8String, utf8String.Length + (4 - utf8String.Length % 4));
+        //private static void WriteUtf8String(UDPSender sender, string data)
+        //{
+        //    var utf8String = Encoding.Unicode.GetBytes(data);
+        //    Array.Resize(ref utf8String, utf8String.Length + (4 - utf8String.Length % 4));
 
-            for (int i = 3; i < utf8String.Length; i += 4)
-            {
-                int data1 =
-                    utf8String[i - 3] << 8 * 3
-                    | utf8String[i - 2] << 8 * 2
-                    | utf8String[i - 1] << 8 * 1
-                    | utf8String[i - 0] << 8 * 0;
-                sender.Send(new SharpOSC.OscMessage("/chatbox/input", data1, true, false));
-            }
-        }
+        //    for (int i = 3; i < utf8String.Length; i += 4)
+        //    {
+        //        int data1 =
+        //            utf8String[i - 3] << 8 * 3
+        //            | utf8String[i - 2] << 8 * 2
+        //            | utf8String[i - 1] << 8 * 1
+        //            | utf8String[i - 0] << 8 * 0;
+        //        sender.Send(new SharpOSC.OscMessage("/chatbox/input", data1, true, false));
+        //    }
+        //}
+
 
         private static string Symbol(bool condition, string tru, string fal)
         {
@@ -322,6 +323,33 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
             return (endTime - DateTime.UtcNow).ToString("mm\\:ss");
         }
 
+        
+        private static string Progress(double progress,int bars )
+        {
+
+            string barstring = "";
+            char[] partChar = { ' ', '▏', '▎', '▍', '▌', '▋', '▊', '█' };
+
+            for (int i = 0; i < bars; i += 1)
+            {
+                barstring = "";
+                double ma = (progress / 100) * (bars);
+                double full = Math.Floor(ma);
+
+                for (int v = 0; v < full; v += 1)
+                {
+                    barstring += partChar[7];
+                }
+
+                double part = Math.Floor((double)((decimal)ma % 1) * partChar.Count());
+                barstring += partChar[(int)part];
+                for (int c = 0; c < (bars - 1) - full; c += 1)
+                {
+                    barstring += Chars.Blank;
+                }
+            }
+            return barstring;
+        }
 
         private static async Task Start()
         {
@@ -338,12 +366,13 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
             //Log("Starting Namechange");
 
             new Thread(Update).Start();
+
+            Thread.Sleep(1000);
             int stage = 1;
             int stages = 2;
-            Thread.Sleep(1000);
-
             var start = DateTime.UtcNow; // Use UtcNow instead of Now
             var endTime = start.AddMinutes(60); //endTime is a member, not a local variable
+            int bars = 6; //6
 
             for (; ; )
             {
@@ -352,6 +381,7 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
 
                     if (CurrentSong.IsNull)
                     {
+   
                         Console.Clear();
                         Console.WriteLine($"Token refreshes in {gettokenexperation(endTime)}");
 
@@ -393,8 +423,10 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
                     }
                     else
                     {
+   
                         for (int a = 0; a < UPDATES; a++)
                         {
+
                             Console.Clear();
                             Console.WriteLine($"Token refreshes in {gettokenexperation(endTime)}");
                             Console.WriteLine($"Stage {stage}/{stages} (Update {a})");
@@ -408,7 +440,7 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
 
                                 case 1:
 
-                                    ChatMsg(sender, new string[] { $"{Symbol(CurrentSong.Playing, Chars.play, Chars.pause)}      {CurrentSong.Data.Name}", $"{CurrentSong.Data.Artists[0].Name}" });
+                                    ChatMsg(sender, new string[] { $"{Symbol(CurrentSong.Playing, Chars.pause, Chars.play)}      {CurrentSong.Data.Name}", $"{CurrentSong.Data.Artists[0].Name}", $"{TimeSpan.FromMilliseconds((double)CurrentSong.Object.ProgressMs).ToString(@"mm\:ss")} [{Progress((float)((decimal)CurrentSong.Object.ProgressMs / CurrentSong.Data.DurationMs) * 100, bars)}] {TimeSpan.FromMilliseconds((double)CurrentSong.Data.DurationMs).ToString(@"mm\:ss")}" });
                                     break;
 
                                 case 2:
@@ -416,24 +448,9 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
 
 
                                     //sender.Send(new SharpOSC.OscMessage("/chatbox/input", $"{utf8Bytes}", true, false ));
-     
-                                    int bars = 6;
-                                    float calculated = MathF.Round(bars * (float)((decimal)CurrentSong.Object.ProgressMs / CurrentSong.Data.DurationMs));
-                                    string barstring = "";
 
-                                    for (int i = 0; i < bars; i += 1)
-                                    {
-                                        if (i <= calculated)
-                                        {
-                                            barstring += Chars.Shaded;
-                                        }
-                                        else
-                                        {
-                                            barstring += Chars.UnShaded;
-                                        }
-                                    }
-                                    ChatMsg(sender, new string[] { $"{TimeSpan.FromMilliseconds((double)CurrentSong.Object.ProgressMs).ToString(@"mm\:ss")} [{barstring}] {TimeSpan.FromMilliseconds((double)CurrentSong.Data.DurationMs).ToString(@"mm\:ss")}", $"{Symbol(CurrentSong.Data.Explicit, Chars.Explicit, " ")} {CurrentSong.Data.Album.Name}" });
-                                    //sender.Send(new SharpOSC.OscMessage("/chatbox/input", "♪"));
+                                                  //              //float calculated = MathF.Round(bars * (float)((decimal)CurrentSong.Object.ProgressMs / CurrentSong.Data.DurationMs));
+                                    ChatMsg(sender, new string[] { $"{Symbol(CurrentSong.Data.Explicit, Chars.Explicit, " ")} {CurrentSong.Data.Album.Name}", $"{CurrentSong.Data.Popularity}/100", $"{TimeSpan.FromMilliseconds((double)CurrentSong.Object.ProgressMs).ToString(@"mm\:ss")} [{Progress((float)((decimal)CurrentSong.Object.ProgressMs / CurrentSong.Data.DurationMs) * 100, bars)}] {TimeSpan.FromMilliseconds((double)CurrentSong.Data.DurationMs).ToString(@"mm\:ss")}" });
                                     break;
                                 //case 3:
                                 //    ChatMsg(sender, new string[] { $"Popularity: {CurrentSong.Data.Popularity}/100", $"{CurrentSong.Data.Type}", $"Experation {gettokenexperation(endTime)}" });
@@ -563,7 +580,12 @@ namespace VrcOSCWorking // https://github.com/VRCWizard/TTS-Voice-Wizard/blob/d5
 
             Console.Title = "VrcOSC By Dragon";
 
-
+            //for (double i = 0; i < 100; i += 0.10)
+            //{
+            //    Console.Clear();
+            //    Console.Write("|" + Progress(i, 6) + "|   " + i);
+            //    Thread.Sleep(10);
+            //}
 
             if (Setup())
             {
